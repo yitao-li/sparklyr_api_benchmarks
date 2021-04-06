@@ -1,0 +1,11 @@
+name: benchmark
+on: [push, pull_request]
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Pull image
+      run: docker pull jozefhajnala/jozefio
+    - name: Run benchmarks
+      run: sh sparklyr_api_benchmarks.sh
